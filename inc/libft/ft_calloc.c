@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rui <rui@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 14:40:57 by rpires-c          #+#    #+#             */
-/*   Updated: 2024/08/20 17:44:20 by rui              ###   ########.fr       */
+/*   Created: 2024/04/16 11:46:55 by rpires-c          #+#    #+#             */
+/*   Updated: 2024/08/20 16:17:06 by rui              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <aio.h>
-# include <stdarg.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*ptr;
 
-int	ft_printf(const char *format, ...);
-int	ft_print_pointer(unsigned long int decimal);
-int	ft_putnbr_base(long int nbr, char *base, int lock_neg);
-int	ft_putchar(char c);
-int	ft_putstrlen(char *s);
-
-#endif
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
+		return (ptr);
+	ft_bzero(ptr, size * nmemb);
+	return (ptr);
+}
+/*
+int	main(void)
+{
+    size_t max_size = SIZE_MAX;
+    
+    printf("%s", (char *)calloc(214736470, 1));
+    printf("%s", (char *)ft_calloc(214736470, 1));
+    return(0);
+}*/

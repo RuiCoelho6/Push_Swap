@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rui <rui@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 14:40:57 by rpires-c          #+#    #+#             */
-/*   Updated: 2024/08/20 17:44:20 by rui              ###   ########.fr       */
+/*   Created: 2024/04/09 14:06:44 by rpires-c          #+#    #+#             */
+/*   Updated: 2024/08/20 16:16:56 by rui              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <aio.h>
-# include <stdarg.h>
-# include <unistd.h>
-# include "../libft/libft.h"
-
-int	ft_printf(const char *format, ...);
-int	ft_print_pointer(unsigned long int decimal);
-int	ft_putnbr_base(long int nbr, char *base, int lock_neg);
-int	ft_putchar(char c);
-int	ft_putstrlen(char *s);
-
-#endif
+int	ft_isalpha(int c)
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}

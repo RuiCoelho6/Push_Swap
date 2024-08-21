@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rui <rui@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 14:40:57 by rpires-c          #+#    #+#             */
-/*   Updated: 2024/08/20 17:44:20 by rui              ###   ########.fr       */
+/*   Created: 2024/05/10 11:31:25 by rpires-c          #+#    #+#             */
+/*   Updated: 2024/08/20 16:16:30 by rui              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <aio.h>
-# include <stdarg.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*temp;
 
-int	ft_printf(const char *format, ...);
-int	ft_print_pointer(unsigned long int decimal);
-int	ft_putnbr_base(long int nbr, char *base, int lock_neg);
-int	ft_putchar(char c);
-int	ft_putstrlen(char *s);
-
-#endif
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		temp = (*lst)-> next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
+	}
+}
