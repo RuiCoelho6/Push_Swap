@@ -6,7 +6,7 @@
 /*   By: rpires-c <rpires-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:10:53 by rpires-c          #+#    #+#             */
-/*   Updated: 2024/06/17 15:14:57 by rpires-c         ###   ########.fr       */
+/*   Updated: 2024/08/24 12:08:46 by rpires-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,24 +60,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (i + num_percentagens - cont);
 }
-
-/*int    main()
-{
-    char c = 'k'; // %c
-    char *str = "String test"; // %s
-    char *var; var = &c;// %p
-    int    nbr = -5;// %d // %i
-    unsigned int nbrr = 20;// %u
-    int b= 0xffffffff;// %x // %X
-    // %%
-
-    int i;
-    printf("Printf replica:\n");
-    i = ft_printf("| TEST TEXT |\n| Single Char: %c |\n| String: %s |\n| Pointer Adress: %p |\n| Decimal: %d |\n| Integer %i |\n| Unsign deci: %u |\n| HexLower: %x |\n| HexUpper: %X |\n| Percentage sign: %% |\n", c, str, var, nbr, nbr, nbrr, b, b);
-    printf("\nReturn Value: %d", i);
-    ///////////////////////////////
-    printf("\nPrintf original:\n");
-    i = printf("| TEST TEXT |\n| Single Char: %c |\n| String: %s |\n| Pointer Adress: %p |\n| Decimal: %d |\n| Integer %i |\n| Unsign deci: %u |\n| HexLower: %x |\n| HexUpper: %X |\n| Percentage sign: %% |\n", c, str, var, nbr, nbr, nbrr, b, b);
-    printf("\nReturn Value: %d", i);
-    return (0);
-}*/

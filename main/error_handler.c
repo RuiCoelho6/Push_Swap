@@ -6,62 +6,59 @@
 /*   By: rpires-c <rpires-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:23:39 by rpires-c          #+#    #+#             */
-/*   Updated: 2024/08/21 13:23:40 by rpires-c         ###   ########.fr       */
+/*   Updated: 2024/08/24 12:17:41 by rpires-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	syntax_error(char *str_n) 
+int	syntax_error(char *str_n)
 {
-	if (!(*str_n == '+'
-			|| *str_n == '-'
-			|| (*str_n >= '0' && *str_n <= '9'))) 
+	if (!(*str_n == '+' || *str_n == '-' || (*str_n >= '0' && *str_n <= '9')))
 		return (1);
-	if ((*str_n == '+'
-			|| *str_n == '-')
-		&& !(str_n[1] >= '0' && str_n[1] <= '9')) 
+	if ((*str_n == '+' || *str_n == '-') && !(str_n[1] >= '0'
+			&& str_n[1] <= '9'))
 		return (1);
-	while (*++str_n) 
+	while (*++str_n)
 	{
-		if (!(*str_n >= '0' && *str_n <= '9')) 
+		if (!(*str_n >= '0' && *str_n <= '9'))
 			return (1);
 	}
 	return (0);
 }
 
-int	duplicate_error(t_stack_node *a, int nbr) 
+int	duplicate_error(t_stack_node *stack_a, int nbr)
 {
-	if (!a) 
+	if (!stack_a)
 		return (0);
-	while (a) 
+	while (stack_a)
 	{
-		if (a->content == nbr) 
+		if (stack_a->content == nbr)
 			return (1);
-		a = a->next; 
+		stack_a = stack_a->next;
 	}
 	return (0);
 }
 
-void	free_stack(t_stack_node **stack) 
+void	free_stack(t_stack_node **stack)
 {
-	t_stack_node	*tmp; 
+	t_stack_node	*tmp;
 	t_stack_node	*current_node;
 
-	if (!stack) 
+	if (!stack)
 		return ;
 	current_node = *stack;
-	while (current_node) 
+	while (current_node)
 	{
-		tmp = current_node->next; 
-		current_node->content = 0; 
-		free(current_node); 
-		current_node = tmp; 
+		tmp = current_node->next;
+		current_node->content = 0;
+		free(current_node);
+		current_node = tmp;
 	}
 	*stack = NULL;
 }
 
-void	free_errors(t_stack_node **stack_a) 
+void	free_errors(t_stack_node **stack_a)
 {
 	free_stack(stack_a);
 	ft_printf("Error\n");

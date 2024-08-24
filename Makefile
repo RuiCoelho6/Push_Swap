@@ -6,7 +6,7 @@
 #    By: rpires-c <rpires-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/21 13:24:01 by rpires-c          #+#    #+#              #
-#    Updated: 2024/08/21 13:24:02 by rpires-c         ###   ########.fr        #
+#    Updated: 2024/08/24 11:13:24 by rpires-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRCS =	commands/push.c \
 		main/push_swap.c \
 		main/push_split.c \
 		main/stack_init_utils.c \
-		main/stack_utils.c
+		main/push_swap_utils.c
 
 all:	$(NAME)
 
