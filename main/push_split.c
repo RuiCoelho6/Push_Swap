@@ -6,7 +6,7 @@
 /*   By: rpires-c <rpires-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:23:42 by rpires-c          #+#    #+#             */
-/*   Updated: 2024/08/21 13:23:43 by rpires-c         ###   ########.fr       */
+/*   Updated: 2024/08/24 13:45:32 by rpires-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ static int	count_words(char *str, char c)
 	{
 		inside_word = false;
 		while (*str == c)
-			++str;
+			str++;
 		while (*str != c && *str)
 		{
 			if (!inside_word)
 			{
-				++count;
+				count++;
 				inside_word = true;
 			}
-			++str;
+			str++;
 		}
 	}
 	return (count);
@@ -43,13 +43,12 @@ static char	*get_next_word(char *str, char c)
 	int			len;
 	int			i;
 
-	cursor = 0;
 	len = 0;
 	i = 0;
 	while (str[cursor] == c)
-		++cursor;
+		cursor++;
 	while ((str[cursor + len] != c) && str[cursor + len])
-		++len;
+		len++;
 	next_word = malloc((size_t)len * sizeof(char) + 1);
 	if (!next_word)
 		return (NULL);
