@@ -6,7 +6,7 @@
 #    By: rpires-c <rpires-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/21 13:24:01 by rpires-c          #+#    #+#              #
-#    Updated: 2024/08/24 11:13:24 by rpires-c         ###   ########.fr        #
+#    Updated: 2024/08/28 14:09:56 by rpires-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,13 @@ SRCS =	commands/push.c \
 		commands/sort_stacks.c \
 		commands/sort_three.c \
 		commands/swap.c \
-		main/error_handler.c \
-		main/target_stack_b_nodes.c \
-		main/target_stack_a_nodes.c \
-		main/push_swap.c \
-		main/push_split.c \
-		main/stack_init_utils.c \
-		main/push_swap_utils.c
+		error_handler.c \
+		target_stack_b_nodes.c \
+		target_stack_a_nodes.c \
+		push_swap.c \
+		push_split.c \
+		stack_init_utils.c \
+		push_swap_utils.c
 
 all:	$(NAME)
 
@@ -40,10 +40,10 @@ $(LIBFT):
 	@make -C ./inc
 
 $(NAME):	$(OBJ) $(LIBFT)
-	@cc $(FLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	@cc -g $(FLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 %.o: %.c
-	@cc $(FLAGS) $(INC) -c $< -o $@
+	@cc -g $(FLAGS) $(INC) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJ)

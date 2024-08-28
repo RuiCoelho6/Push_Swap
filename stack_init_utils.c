@@ -6,11 +6,11 @@
 /*   By: rpires-c <rpires-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:23:48 by rpires-c          #+#    #+#             */
-/*   Updated: 2024/08/24 13:13:50 by rpires-c         ###   ########.fr       */
+/*   Updated: 2024/08/28 14:09:02 by rpires-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static long	ft_atol(const char *str)
 {
@@ -63,21 +63,23 @@ static void	ft_append_node(t_stack_node **stack, int n)
 	}
 }
 
-void	init_stack(t_stack_node **stack_a, char **argv)
+void	init_stack(t_stack_node **stack_a, char **argv, bool free_argv)
 {
 	long	nbr;
 	int		i;
 
-	i = 0;
+	i = 1;
+	if (argv == NULL)
+		free_errors(stack_a, argv, free_argv);
 	while (argv[i])
 	{
 		if (syntax_error(argv[i]))
-			free_errors(stack_a);
+			free_errors(stack_a, argv, free_argv);
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			free_errors(stack_a);
+			free_errors(stack_a, argv, free_argv);
 		if (duplicate_error(*stack_a, (int)nbr))
-			free_errors(stack_a);
+			free_errors(stack_a, argv, free_argv);
 		ft_append_node(stack_a, (int)nbr);
 		i++;
 	}

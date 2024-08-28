@@ -6,7 +6,7 @@
 /*   By: rpires-c <rpires-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:24:04 by rpires-c          #+#    #+#             */
-/*   Updated: 2024/08/24 12:13:11 by rpires-c         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:42:48 by rpires-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ void			min_on_top(t_stack_node **stack_a);
 int				syntax_error(char *str_n);
 int				duplicate_error(t_stack_node *stack_a, int nbr);
 void			free_stack(t_stack_node **stack);
-void			free_errors(t_stack_node **stack_a);
-void			init_stack(t_stack_node **stack_a, char **argv);
+void			free_errors(t_stack_node **stack_a,
+					char **argv, bool free_argv);
+void			init_stack(t_stack_node **stack_a, char **argv, bool free_argv);
 char			**push_split(char *s, char c);
 void			init_a_nodes(t_stack_node *stack_a, t_stack_node *stack_b);
 void			init_b_nodes(t_stack_node *a, t_stack_node *b);
@@ -49,6 +50,7 @@ t_stack_node	*ft_find_last_node(t_stack_node *stack);
 bool			ft_stack_sorted(t_stack_node *stack);
 t_stack_node	*ft_find_min_node(t_stack_node *stack);
 t_stack_node	*ft_find_max_node(t_stack_node *stack);
+void			free_array(char **array);
 void			sa(t_stack_node **stack_a, bool print);
 void			sb(t_stack_node **stack_b, bool print);
 void			ss(t_stack_node **stack_a, t_stack_node **stack_b, bool print);

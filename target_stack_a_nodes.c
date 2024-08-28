@@ -6,11 +6,11 @@
 /*   By: rpires-c <rpires-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:23:53 by rpires-c          #+#    #+#             */
-/*   Updated: 2024/08/24 13:31:28 by rpires-c         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:39:45 by rpires-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 t_stack_node	*get_cheapest_node(t_stack_node *stack)
 {

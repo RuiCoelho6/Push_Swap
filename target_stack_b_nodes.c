@@ -6,11 +6,11 @@
 /*   By: rpires-c <rpires-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:23:58 by rpires-c          #+#    #+#             */
-/*   Updated: 2024/08/24 13:14:16 by rpires-c         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:39:48 by rpires-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	set_index_median(t_stack_node *stack)
 {

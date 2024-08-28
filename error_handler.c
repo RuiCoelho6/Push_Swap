@@ -6,11 +6,11 @@
 /*   By: rpires-c <rpires-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:23:39 by rpires-c          #+#    #+#             */
-/*   Updated: 2024/08/24 12:17:41 by rpires-c         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:40:14 by rpires-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	syntax_error(char *str_n)
 {
@@ -58,9 +58,25 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-void	free_errors(t_stack_node **stack_a)
+void	free_errors(t_stack_node **stack_a, char **argv, bool free_argv)
 {
-	free_stack(stack_a);
+	if (stack_a)
+		free_stack(stack_a);
+	if (free_argv && argv)
+		free_array(argv);
 	ft_printf("Error\n");
 	exit(1);
+}
+
+void	free_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }
