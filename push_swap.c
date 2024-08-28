@@ -6,7 +6,7 @@
 /*   By: rpires-c <rpires-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:23:45 by rpires-c          #+#    #+#             */
-/*   Updated: 2024/08/28 14:12:51 by rpires-c         ###   ########.fr       */
+/*   Updated: 2024/08/28 14:21:07 by rpires-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ void	choose_sorter(t_stack_node **stack_a, t_stack_node **stack_b)
 		sort_stacks(stack_a, stack_b);
 }
 
+void	handle_no_arg(t_stack_node **stack_a, int argc, char **argv, bool free_argv)
+{
+	if (argc == 1)
+		exit (1);
+	else if (argc == 2 && !argv[1][0])
+		free_errors(stack_a, argv, free_argv);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*stack_a;
@@ -31,9 +39,8 @@ int	main(int argc, char **argv)
 	free_argv = false;
 	stack_a = NULL;
 	stack_b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		free_errors(&stack_a, argv, free_argv);
-	else if (argc == 2)
+	handle_no_arg(&stack_a, argc, argv, free_argv);
+	if (argc == 2)
 	{
 		argv = push_split(argv[1], ' ');
 		free_argv = true;
